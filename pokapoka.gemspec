@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Pokapoka::VERSION
   gem.authors       = ["Tymon Tobolski"]
   gem.email         = ["i@teamon.eu"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Show .md files}
+  gem.summary       = %q{Show .md files}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)

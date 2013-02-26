@@ -2,6 +2,7 @@
 
 ```bash
 $ gem install pokapoka
+$ cd /path/to/app
 $ pokapoka
 >> Thin web server (v1.5.0 codename Knife)
 >> Maximum connections set to 1024
