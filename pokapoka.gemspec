@@ -6,8 +6,8 @@ require 'pokapoka/version'
 Gem::Specification.new do |gem|
   gem.name          = "pokapoka"
   gem.version       = Pokapoka::VERSION
-  gem.authors       = ["Tymon Tobolski"]
-  gem.email         = ["i@teamon.eu"]
+  gem.authors       = ["Tymon Tobolski", "Adam Stankiewicz"]
+  gem.email         = ["i@teamon.eu", "sheerun@sher.pl"]
   gem.description   = %q{Show .md files}
   gem.summary       = %q{Show .md files}
   gem.homepage      = ""
@@ -17,6 +17,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency "rack"
   gem.add_dependency "github-markdown"
 end

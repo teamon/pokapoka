@@ -2,4 +2,9 @@
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require "pokapoka"
-Pokapoka.run!
+
+if File.exist?($1 || 'README.md')
+  system("qlmanage -p #{Pokapoka.html_path($1 || 'README.md')} &> /dev/null")
+else
+  $stderr.puts("File doesn't exist.")
+end
