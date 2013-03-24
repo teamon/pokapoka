@@ -14,7 +14,7 @@ module Pokapoka
     </html>'
 
     app = Proc.new do |env|
-      path = env["REQUEST_URI"].sub("/", "").strip
+      path = env["PATH_INFO"].sub("/", "").strip
       path = path == "" ? "README.md" : path
 
       path = File.join(Dir.pwd, path)
@@ -29,7 +29,6 @@ module Pokapoka
 
   def self.run!
     Thread.new do
-      sleep 2
       Launchy.open("http://localhost:9999")
     end
 
