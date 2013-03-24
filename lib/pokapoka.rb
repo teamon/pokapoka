@@ -1,6 +1,7 @@
 require "pokapoka/version"
 require "github/markdown"
 require 'rack'
+require "launchy"
 
 module Pokapoka
   def self.app
@@ -15,15 +16,23 @@ module Pokapoka
     app = Proc.new do |env|
       path = env["REQUEST_URI"].sub("/", "").strip
       path = path == "" ? "README.md" : path
+
+      path = File.join(Dir.pwd, path)
+
       if File.exist?(path)
         [200, {"Content-type" => "text/html"}, tpl.gsub("BODY", GitHub::Markdown.render_gfm(File.read(path))).each_line]
       else
-        [404, {}, "stfu".each_line]
+        [404, {}, "File #{path} not found".each_line]
       end
     end
   end
 
   def self.run!
+    Thread.new do
+      sleep 2
+      Launchy.open("http://localhost:9999")
+    end
+
     ::Rack::Handler.default.run app, :Port => 9999
   end
 end

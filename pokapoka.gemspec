@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "rack"
   gem.add_dependency "github-markdown"
+  gem.add_dependency "launchy"
 end
