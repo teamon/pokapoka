@@ -7,7 +7,7 @@ module Pokapoka
   def self.app
     tpl = '<html>
     <head>
-    <link href="https://gist.github.com/assets/application-3e2433f6da817bf23a85587d46e5af5c.css" media="screen, print" rel="stylesheet" />
+    <link href="https://gist.github.com/assets/application-1a163d807985dac0d994594ef2558571.css" media="screen, print" rel="stylesheet" />
     <style type="text/css">article{max-width:900px;margin:auto;padding:50px;border:1px solid #ccc;border-top:0;}</style>
     </head>
     <body><article class="markdown-body">BODY</atricle></body>
