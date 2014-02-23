@@ -15,12 +15,17 @@ module Pokapoka
 
     app = Proc.new do |env|
       path = env["PATH_INFO"].sub("/", "").strip
-      path = path == "" ? "README.md" : path
 
-      path = File.join(Dir.pwd, path)
+      candidates = if path == ""
+        ["README.md", "README.mkdwn", "README.markdown"]
+      else
+        [path]
+      end
 
-      if File.exist?(path)
-        [200, {"Content-type" => "text/html"}, tpl.gsub("BODY", GitHub::Markdown.render_gfm(File.read(path))).each_line]
+      file = candidates.map {|f| File.join(Dir.pwd, f) }.find {|f| File.exists?(f) }
+
+      if file
+        [200, {"Content-type" => "text/html"}, tpl.gsub("BODY", GitHub::Markdown.render_gfm(File.read(file))).each_line]
       else
         [404, {}, "File #{path} not found".each_line]
       end
